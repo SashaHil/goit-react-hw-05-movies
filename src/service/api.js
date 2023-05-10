@@ -19,6 +19,7 @@ export async function fetchMovieDetails(movieId) {
   const response = await axios.get(
     `movie/${movieId}?api_key=${API_KEY}&language=en-US&external_source=imdb_id`
   );
+
   return response.data;
 }
 

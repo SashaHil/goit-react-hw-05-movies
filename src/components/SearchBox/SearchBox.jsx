@@ -1,26 +1,32 @@
 import { useState } from 'react';
 import { Button, Form, Input } from './SearchBox.styled';
+import { toast } from 'react-toastify';
 
 export const SearchBox = ({ onSubmit }) => {
-  const [value, setValue] = useState('');
+  const [query, setQuery] = useState('');
 
-  const handleSearch = e => {
-    setValue(e.currentTarget.value);
+  const handleChange = e => {
+    setQuery(e.currentTarget.value);
   };
 
   const handleSumbmit = e => {
     e.preventDefault();
 
-    if (value.trim() === '') {
-      return console.error('Type something');
+    if (query.trim() === '') {
+      return toast.error('Something went wrong!');
     }
-    onSubmit(value);
-    setValue('');
+    onSubmit(query);
+    setQuery('');
   };
 
   return (
     <Form onSubmit={handleSumbmit}>
-      <Input type="text" name="query" value={value} onChange={handleSearch} />
+      <Input
+        type="text"
+        name="query"
+        placeholder="Search movies"
+        onChange={handleChange}
+      />
       <Button type="submit">Search</Button>
     </Form>
   );

@@ -10,7 +10,7 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams({});
 
   useEffect(() => {
-    const query = searchParams.get('query');
+    const query = searchParams.get('query') ?? '';
     if (query !== '') {
       getMoviesBySearch(query);
     }
