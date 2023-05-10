@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader';
 import { MovieList } from 'components/MovieList/MovieList';
 import { useEffect, useState } from 'react';
 import { fetchTrendingMovies } from 'service/api';
@@ -25,7 +26,7 @@ const Home = () => {
     <main>
       <h1>Trending today</h1>
       {status === 'responded' && <MovieList products={movie} />}
-      {status === 'pending' && <div>Loading...</div>}
+      {status === 'pending' && <Loader />}
       {status === 'rejected' && <h2>Something went wrong...</h2>}
     </main>
   );

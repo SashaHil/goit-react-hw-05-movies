@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader';
 import { MovieList } from 'components/MovieList/MovieList';
 import { SearchBox } from 'components/SearchBox/SearchBox';
 import { useState, useEffect } from 'react';
@@ -35,7 +36,7 @@ const Movies = () => {
     <main>
       <SearchBox onSubmit={handleSubmit} />
       {status === 'responded' && <MovieList products={movie} />}
-      {status === 'pending' && <div>Loading...</div>}
+      {status === 'pending' && <Loader />}
       {status === 'rejected' && <h2>Something went wrong...</h2>}
     </main>
   );

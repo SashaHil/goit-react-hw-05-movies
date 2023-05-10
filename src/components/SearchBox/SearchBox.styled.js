@@ -16,7 +16,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   margin-left: 1px;
-  color: black;
+  color: white;
   background-color: grey;
   border: 0;
   border-radius: 4px;
@@ -25,7 +25,6 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    color: white;
     background-color: orangered;
   }
 `;

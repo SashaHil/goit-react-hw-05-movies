@@ -1,13 +1,14 @@
 import { MovieItem } from 'components/MovieItem/MovieItem';
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+import { List, Link } from 'components/MovieList/MovieList.styled';
 import { fetchMovieDetails } from 'service/api';
+import { Loader } from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [status, setStatus] = useState('idle');
   const { movieId } = useParams();
-  const location = useLocation();
 
   useEffect(() => {
     getMoviesById(movieId);
@@ -17,7 +18,6 @@ const MovieDetails = () => {
     try {
       setStatus('pending');
       const data = await fetchMovieDetails(movieId);
-      console.log(data);
       setSelectedMovie(data);
       setStatus('responded');
     } catch {
@@ -28,18 +28,18 @@ const MovieDetails = () => {
   return (
     <main>
       {status === 'responded' && <MovieItem product={selectedMovie} />}
-      {status === 'pending' && <div>Loading...</div>}
+      {status === 'pending' && <Loader />}
       {status === 'rejected' && <h2>Something went wrong...</h2>}
 
-      <p>Additional information</p>
-      <ul>
+      <h3>Additional information</h3>
+      <List>
         <li>
           <Link to="cast">Cast</Link>
         </li>
         <li>
           <Link to="reviews">Reviews</Link>
         </li>
-      </ul>
+      </List>
       <Outlet />
     </main>
   );

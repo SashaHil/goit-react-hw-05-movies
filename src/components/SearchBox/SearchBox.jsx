@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Button, Form, Input } from './SearchBox.styled';
 import { toast } from 'react-toastify';
@@ -31,3 +32,5 @@ export const SearchBox = ({ onSubmit }) => {
     </Form>
   );
 };
+
+SearchBox.propTypes = { onSubmit: PropTypes.func.isRequired };
