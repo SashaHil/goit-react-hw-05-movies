@@ -10,19 +10,19 @@ const Cast = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    const getMovieCredit = async () => {
+      try {
+        setStatus('pending');
+        const data = await fetchMovieCredits(movieId);
+        setCast(data);
+        setStatus('responded');
+      } catch {
+        setStatus('rejected');
+      }
+    };
+
     getMovieCredit(movieId);
   }, [movieId]);
-
-  const getMovieCredit = async () => {
-    try {
-      setStatus('pending');
-      const data = await fetchMovieCredits(movieId);
-      setCast(data);
-      setStatus('responded');
-    } catch {
-      setStatus('rejected');
-    }
-  };
 
   return (
     <>
