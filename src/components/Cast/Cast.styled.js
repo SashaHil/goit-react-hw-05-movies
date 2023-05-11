@@ -1,0 +1,13 @@
+import styled from 'styled-components';
+
+export const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  list-style: none;
+`;
+
+export const Text = styled.p`
+  width: 200px;
+`;

@@ -1,5 +1,5 @@
 import { MovieItem } from 'components/MovieItem/MovieItem';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { List, Link } from 'components/MovieList/MovieList.styled';
 import { fetchMovieDetails } from 'service/api';
@@ -28,8 +28,6 @@ const MovieDetails = () => {
   return (
     <main>
       {status === 'responded' && <MovieItem product={selectedMovie} />}
-      {status === 'pending' && <Loader />}
-      {status === 'rejected' && <h2>Something went wrong...</h2>}
 
       <h3>Additional information</h3>
       <List>
@@ -40,7 +38,11 @@ const MovieDetails = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </List>
-      <Outlet />
+      {status === 'pending' && <Loader />}
+      {status === 'rejected' && <h2>Something went wrong...</h2>}
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };
