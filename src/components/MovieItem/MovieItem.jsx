@@ -1,7 +1,4 @@
-import { BackLink } from 'components/BackLink/BackLink';
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Container } from './MovieItem.styled';
 
 export const MovieItem = ({ product }) => {
@@ -11,12 +8,8 @@ export const MovieItem = ({ product }) => {
   const mainPoster = `https://image.tmdb.org/t/p/w300${poster_path}`;
   const posterFake = `https://sd.keepcalms.com/i-w300/keep-calm-poster-not-found.jpg`;
 
-  const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? '/');
-
   return (
     <>
-      <BackLink to={backLinkRef.current}>Go back</BackLink>
       <Container>
         <img src={poster_path ? mainPoster : posterFake} alt={title} />
         <div>
@@ -36,7 +29,7 @@ MovieItem.propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
     original_title: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
     vote_average: PropTypes.number,
     overview: PropTypes.string,
     genres: PropTypes.arrayOf(

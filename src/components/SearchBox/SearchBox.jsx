@@ -14,7 +14,7 @@ export const SearchBox = ({ onSubmit }) => {
     e.preventDefault();
 
     if (query.trim() === '') {
-      return toast.error('Something went wrong!');
+      return toast.error('Type something!');
     }
     onSubmit(query);
     setQuery('');

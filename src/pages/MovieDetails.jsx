@@ -4,6 +4,10 @@ import { Outlet, useParams } from 'react-router-dom';
 import { List, Link } from 'components/MovieList/MovieList.styled';
 import { fetchMovieDetails } from 'service/api';
 import { Loader } from 'components/Loader/Loader';
+import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { HiArrowLeft } from 'react-icons/hi';
+import { StyledLink } from 'components/BackLink/BackLink.styled';
 
 const MovieDetails = () => {
   const [selectedMovie, setSelectedMovie] = useState({});
@@ -25,8 +29,15 @@ const MovieDetails = () => {
     }
   };
 
+  const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? '/');
+
   return (
     <main>
+      <StyledLink to={backLinkRef.current}>
+        <HiArrowLeft size="24" />
+        Go back
+      </StyledLink>
       {status === 'responded' && <MovieItem product={selectedMovie} />}
 
       <h3>Additional information</h3>

@@ -21,6 +21,10 @@ const Movies = () => {
     try {
       setStatus('pending');
       const data = await fetchMoviesBySearch(query);
+      if (data.length === 0) {
+        setStatus('rejected');
+        return;
+      }
       setMovie(data);
       setStatus('responded');
     } catch {
