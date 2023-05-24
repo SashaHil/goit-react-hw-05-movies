@@ -50,7 +50,7 @@ const MovieDetails = () => {
         </li>
       </List>
       {status === 'pending' && <Loader />}
-      {status === 'rejected' && <h2>Something went wrong...</h2>}
+      {status === 'rejected' && <h2>Oops, something went wrong...</h2>}
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

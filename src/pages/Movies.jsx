@@ -41,7 +41,7 @@ const Movies = () => {
       <SearchBox onSubmit={handleSubmit} />
       {status === 'responded' && <MovieList products={movie} />}
       {status === 'pending' && <Loader />}
-      {status === 'rejected' && <h2>Something went wrong...</h2>}
+      {status === 'rejected' && <h2>Oops, something went wrong...</h2>}
     </main>
   );
 };
