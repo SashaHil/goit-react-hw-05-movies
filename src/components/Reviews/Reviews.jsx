@@ -2,7 +2,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'service/api';
-import { List } from './Reviews.styled';
+import { List, Text } from './Reviews.styled';
 
 const Reviews = () => {
   const [results, setResults] = useState([]);
@@ -34,7 +34,7 @@ const Reviews = () => {
             return (
               <li key={id}>
                 <h3>Author: {author}</h3>
-                <p>{content}</p>
+                <Text>{content}</Text>
               </li>
             );
           })}

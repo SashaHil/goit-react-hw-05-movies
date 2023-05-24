@@ -8,7 +8,7 @@ export const Loader = () => {
       color="orangered"
       ariaLabel="tail-spin-loading"
       radius="1"
-      wrapperStyle={{}}
+      wrapperStyle={{ display: 'flex', justifyContent: 'center' }}
       wrapperClass=""
       visible={true}
     />

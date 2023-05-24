@@ -1,7 +1,7 @@
 import { MovieItem } from 'components/MovieItem/MovieItem';
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import { List, Link } from 'components/MovieList/MovieList.styled';
+import { List, Link, Title } from 'components/MovieList/MovieList.styled';
 import { fetchMovieDetails } from 'service/api';
 import { Loader } from 'components/Loader/Loader';
 import { useRef } from 'react';
@@ -40,7 +40,7 @@ const MovieDetails = () => {
       </StyledLink>
       {status === 'responded' && <MovieItem product={selectedMovie} />}
 
-      <h3>Additional information</h3>
+      <Title>Additional information</Title>
       <List>
         <li>
           <Link to="cast">Cast</Link>
