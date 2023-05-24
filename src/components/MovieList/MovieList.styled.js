@@ -12,8 +12,6 @@ export const List = styled.ul`
   padding: 0;
 `;
 
-export const Item = styled.li``;
-
 export const Link = styled(NavLink)`
   text-decoration: none;
   &:hover,

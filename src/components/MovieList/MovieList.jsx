@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { List, Link, Image, FilmName, Item } from './MovieList.styled';
+import { List, Link, Image, FilmName } from './MovieList.styled';
 
 export const MovieList = ({ products }) => {
   const location = useLocation();
@@ -8,7 +8,7 @@ export const MovieList = ({ products }) => {
   return (
     <List>
       {products.map(({ id, title, name, poster_path }) => (
-        <Item key={id}>
+        <li key={id}>
           <Link to={`/movies/${id}`} state={{ from: location }}>
             <Image
               src={
@@ -20,7 +20,7 @@ export const MovieList = ({ products }) => {
             />
             <FilmName>{title || name}</FilmName>
           </Link>
-        </Item>
+        </li>
       ))}
     </List>
   );
