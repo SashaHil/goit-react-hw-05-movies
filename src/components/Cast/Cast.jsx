@@ -2,7 +2,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'service/api';
-import { List, Text } from './Cast.styled';
+import { Item, List, Text } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);
@@ -31,7 +31,7 @@ const Cast = () => {
           {cast.map(
             ({ cast_id, name, character, profile_path, original_name }) => {
               return (
-                <li key={cast_id}>
+                <Item key={cast_id}>
                   <img
                     src={
                       profile_path
@@ -42,7 +42,7 @@ const Cast = () => {
                   />
                   <p>{name || original_name}</p>
                   <Text>Character: {character}</Text>
-                </li>
+                </Item>
               );
             }
           )}

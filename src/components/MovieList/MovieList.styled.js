@@ -13,6 +13,7 @@ export const List = styled.ul`
 `;
 
 export const Link = styled(NavLink)`
+  color: black;
   text-decoration: none;
   &:hover,
   &:focus {
