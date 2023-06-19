@@ -12,7 +12,14 @@ export const Form = styled.form`
 export const Input = styled.input`
   padding: 4px 32px 4px 8px;
   border-radius: 4px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font: inherit;
+
+  &:hover,
+  &:focus {
+    border-color: orangered;
+  }
 `;
 
 export const Button = styled.button`
@@ -23,6 +30,7 @@ export const Button = styled.button`
   border-radius: 4px;
   padding: 8px 8px 8px 8px;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {

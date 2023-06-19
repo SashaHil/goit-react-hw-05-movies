@@ -1,5 +1,10 @@
 import PropTypes from 'prop-types';
-import { Container, OverviewText } from './MovieItem.styled';
+import {
+  Container,
+  AdditionalText,
+  OverviewText,
+  Title,
+} from './MovieItem.styled';
 
 export const MovieItem = ({ product }) => {
   const { title, genres, original_title, overview, poster_path, vote_average } =
@@ -13,12 +18,14 @@ export const MovieItem = ({ product }) => {
       <Container>
         <img src={poster_path ? mainPoster : posterFake} alt={title} />
         <div>
-          <h2>{title || original_title}</h2>
-          <p>Use Score: {vote_average}</p>
-          <b>Overview</b>
+          <Title>{title || original_title}</Title>
+          <OverviewText>Use Score: {vote_average}</OverviewText>
+          <AdditionalText>Overview</AdditionalText>
           <OverviewText>{overview}</OverviewText>
-          <b>Genres:</b>
-          <p>{genres.map(({ name }) => name).join(', ')}</p>
+          <AdditionalText>Genres:</AdditionalText>
+          <AdditionalText>
+            {genres.map(({ name }) => name).join(', ')}
+          </AdditionalText>
         </div>
       </Container>
     </>

@@ -2,7 +2,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'service/api';
-import { List, Text } from './Reviews.styled';
+import { Text, Title } from './Reviews.styled';
 
 const Reviews = () => {
   const [results, setResults] = useState([]);
@@ -29,16 +29,16 @@ const Reviews = () => {
       {status === 'responded' && results.length === 0 ? (
         <h2>There are no reviews</h2>
       ) : (
-        <List>
+        <ul>
           {results.map(({ id, author, content }) => {
             return (
               <li key={id}>
-                <h3>Author: {author}</h3>
+                <Title>Author: {author}</Title>
                 <Text>{content}</Text>
               </li>
             );
           })}
-        </List>
+        </ul>
       )}
       {status === 'pending' && <Loader />}
       {status === 'rejected' && <h2>Something went wrong...</h2>}

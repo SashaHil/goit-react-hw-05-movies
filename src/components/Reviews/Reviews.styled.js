@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
-export const List = styled.ul`
-  padding: 0;
-  list-style: none;
+export const Title = styled.h3`
+  margin-bottom: 5px;
+  color: white;
 `;
 
 export const Text = styled.p`
-  max-width: 1600px;
+  max-width: 1240px;
+  margin-bottom: 15px;
+  color: white;
 `;

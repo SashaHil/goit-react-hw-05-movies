@@ -3,19 +3,32 @@ import styled from 'styled-components';
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-
-  padding: 0;
-
-  list-style: none;
+  justify-content: center;
+  gap: 20px;
 `;
 
 export const Item = styled.li`
-  flex-basis: calc((100% - 60px) / 5);
+  display: flex;
+  flex-flow: column wrap;
+  width: 180px;
+  height: 100%;
 `;
 
 export const Text = styled.p`
-  width: 200px;
+  width: 180px;
+  color: white;
+  text-align: center;
+`;
 
-  margin-right: 0;
+export const Name = styled.p`
+  font-weight: 500;
+  text-align: center;
+  margin: 5px 0;
+  color: white;
+`;
+
+export const Image = styled.img`
+  display: block;
+  max-width: 215px;
+  height: auto;
 `;

@@ -6,10 +6,12 @@ export const StyledLink = styled(Link)`
   align-items: center;
   gap: 4px;
   padding: 8px 0;
-  color: black;
+  margin-bottom: 10px;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover {
     color: orangered;

@@ -1,13 +1,14 @@
 import { MovieItem } from 'components/MovieItem/MovieItem';
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import { List, Link, Title } from 'components/MovieList/MovieList.styled';
+import { Link } from 'components/MovieList/MovieList.styled';
 import { fetchMovieDetails } from 'service/api';
 import { Loader } from 'components/Loader/Loader';
 import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi';
 import { StyledLink } from 'components/BackLink/BackLink.styled';
+import { List, Title } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [selectedMovie, setSelectedMovie] = useState({});

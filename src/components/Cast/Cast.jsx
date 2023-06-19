@@ -2,7 +2,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'service/api';
-import { Item, List, Text } from './Cast.styled';
+import { Item, List, Name, Text } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);
@@ -40,7 +40,7 @@ const Cast = () => {
                     }
                     alt={name}
                   />
-                  <p>{name || original_name}</p>
+                  <Name>{name || original_name}</Name>
                   <Text>Character: {character}</Text>
                 </Item>
               );

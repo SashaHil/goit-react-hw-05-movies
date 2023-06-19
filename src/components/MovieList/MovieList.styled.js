@@ -7,36 +7,42 @@ export const List = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-
-  margin: 0;
-  padding: 0;
+  padding-bottom: 30px;
 `;
 
 export const Link = styled(NavLink)`
-  color: black;
+  color: white;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+
   &:hover,
   &:focus {
     color: orangered;
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h1`
   text-align: center;
+  margin-bottom: 15px;
+  color: white;
 `;
 
 export const FilmName = styled.p`
   width: 300px;
   padding: 4px;
   margin-top: 8px;
-  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  font-weight: 500;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const Image = styled.img`
   display: block;
-  width: 345px;
-  height: 524px;
+  width: 316px;
+  height: 466px;
   transition: transform 0.3s linear;
 
   &:hover,
